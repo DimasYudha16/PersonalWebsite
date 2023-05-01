@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PortofolioController;
+use App\Models\portofolio;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,37 +19,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $portofolio = portofolio::all();
+    return view('welcome', compact('portofolio'));
 });
 
 Auth::routes([
-    'register' => false,
-    'confirm' => false,
+    'register' => true,
+    'confirm' => true,
 ]);
 //untuk meng disable register
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', function() {
     return view('admin');
 });
 
-Route::get('/charts', function() {
-    return view('chartsjs');
-});
-
-Route::get('/chartsflot', function() {
-    return view('chartsflot');
-});
-
-Route::get('/chartspeity', function() {
-    return view('chartspeity');
-});
-
-Route::get('/fontawesome', function() {
-    return view('fontawesome');
-});
-
-Route::get('/fontthemify', function() {
-    return view('fontthemify');
-});
+Route::get('/table', [PortofolioController::class, 'index'])->name('table');
+Route::post('/create', [PortofolioController::class, 'create'])->name('table.create');
+Route::post('/edit/{id}', [PortofolioController::class, 'edit'])->name('table.edit');
+Route::get('/delete/{id}', [PortofolioController::class, 'delete'])->name('table.delete');

@@ -73,15 +73,11 @@
 			<div class="col-md-12">
 				<h1 class="heading">This my Portofolio</h1>
 			</div><!-- End col-md-12 -->
-
+			@foreach($portofolio as $p)
 			<div class="col-md-4 col-sm-4">
-				<img src="images/basket.jpg">
-			</div><!-- End col-md-4 -->
-			<div class="col-md-4 col-sm-4">
-				<img src="images/cuci.jpg">
-			</div><!-- End col-md-4 -->
-			<div class="col-md-4 col-sm-4">
-				<img src="images/pancong.jpg">
+				<img src="{{ asset('images/'.$p->image) }}" alt="Gambar Portofolio">
+			</div>
+			@endforeach
 			
 		</div><!-- End row -->
 	</div><!-- End container -->
