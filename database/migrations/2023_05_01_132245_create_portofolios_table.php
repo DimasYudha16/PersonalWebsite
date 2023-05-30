@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('portofolios', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->unsignedBigInteger('id_category')->nullable();
+            $table->foreign('id_category')
+                ->references('id')
+                ->on('categories')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->string('describe');
             $table->string('image');
             $table->timestamps();
