@@ -16,4 +16,9 @@ class portofolio extends Model
         'describe',
         'image',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'id_category', 'id');
+    }
 }
