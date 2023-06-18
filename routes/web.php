@@ -45,3 +45,4 @@ Route::post('/category/create', [CategoryController::class, 'create'])->name('ca
 Route::post('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::post('/login', [HomeController::class, 'login'])->name('login');
