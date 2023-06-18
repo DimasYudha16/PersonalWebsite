@@ -32,7 +32,7 @@ Auth::routes([
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', function() {
+Route::get('/admin', function () {
     return view('admin');
 });
 
@@ -40,8 +40,8 @@ Route::get('/table', [PortofolioController::class, 'index'])->name('table');
 Route::post('/create', [PortofolioController::class, 'create'])->name('table.create');
 Route::post('/edit/{id}', [PortofolioController::class, 'edit'])->name('table.edit');
 Route::get('/delete/{id}', [PortofolioController::class, 'delete'])->name('table.delete');
-Route::get('/category', [CategoryController::class, 'index'])->name('category'); 
+Route::get('/category', [CategoryController::class, 'index'])->name('category');
 Route::post('/category/create', [CategoryController::class, 'create'])->name('category.create');
 Route::post('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard'); 
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
